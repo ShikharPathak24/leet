@@ -1,20 +1,10 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        int n = haystack.length();  //9
-        int m = needle.length();    //3
-        for (int i= 0; i <= n - m; i++){
-            int j=0;
-            while(j < m && haystack.charAt(i+j)==needle.charAt(j)){
-                j++;
-            }
-            if(j == m){
+        for(int i = 0,j = needle.length();j<=haystack.length();i++,j++){
+            if(haystack.substring(i,j).equals(needle)){
                 return i;
             }
-
-            
-            
         }
         return -1;
-        
     }
 }
