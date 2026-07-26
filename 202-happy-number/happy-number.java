@@ -6,7 +6,7 @@ class Solution {
             while(n > 0){
                 int dig = n % 10;
                 n = n / 10;
-                sum += Math.pow(dig,2);
+                sum = sum+ dig*dig;
             }
             if(sh.contains(sum)){
                 return false;
