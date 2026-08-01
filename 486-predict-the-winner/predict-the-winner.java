@@ -1,0 +1,29 @@
+class Solution {
+    public boolean predictTheWinner(int[] nums) {
+        int n = nums.length;
+        int[][] dp = new int[n][n];
+
+        // If only one number is available
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = nums[i];
+        }
+
+        // Length of current subarray
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i <= n - len; i++) {
+
+                int j = i + len - 1;
+
+                // Player chooses nums[i]
+                int takeLeft = nums[i] - dp[i + 1][j];
+
+                // Player chooses nums[j]
+                int takeRight = nums[j] - dp[i][j - 1];
+
+                dp[i][j] = Math.max(takeLeft, takeRight);
+            }
+        }
+
+        return dp[0][n - 1] >= 0;
+    }
+}
