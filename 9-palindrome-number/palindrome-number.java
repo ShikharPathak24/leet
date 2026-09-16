@@ -5,7 +5,7 @@ class Solution {
         int copy = x;
         while (copy > 0){
             int digit = copy % 10;
-            num = (num * 10) + digit;
+            num = num * 10 + digit;
             copy /= 10;
         }
         return (num == x);
